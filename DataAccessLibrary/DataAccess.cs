@@ -95,6 +95,74 @@ namespace DataAccessLibrary
                 return myRecipe;
             }
         }
+
+  
+        public static List<Recipe> GetRecipeList(string name,string atype,string species,string tissue)
+        {
+
+            List<Recipe> myRecipe = new List<Recipe>();
+            string myquery = "SELECT * FROM Recipe";
+            string mywhere = "";
+            if (name != "")
+                mywhere = mywhere + "NickName=\'" + name + "\'";
+            if (atype != "Any")
+            {
+                if (mywhere != "")
+                    mywhere = mywhere + " AND ";
+                mywhere = mywhere + "Type=\'" + atype + "\'";
+            }
+            if (species!="Any")
+            {
+                if (mywhere != "")
+                    mywhere = mywhere + " AND ";
+                mywhere = mywhere + "Species=\'"+species+"\'";
+            }
+
+            if (tissue != "Any")
+            {
+                if (mywhere != "")
+                    mywhere = mywhere + " AND ";
+                mywhere = mywhere + "Organ=\'"+tissue+"\'";
+            }
+            if (mywhere != "")
+                mywhere = " WHERE " + mywhere;
+            myquery = myquery + mywhere;
+
+            using (SqliteConnection db =
+                new SqliteConnection("Filename=s2Genomics.db"))
+            {
+                db.Open();
+                SqliteCommand selectCommand = new SqliteCommand(myquery, db);
+                SqliteDataReader query = selectCommand.ExecuteReader();
+                while (query.Read())
+                {
+                    myRecipe.Add(new Recipe
+                    {//TODO handle null results from query
+                        Id = (long)query["Id"],
+                        NickName = (string)query["NickName"],
+                        Species = (string)query["Species"],
+                        Organ = (string)query["Organ"],
+                        GrindTime = (long)query["GrindTime"],
+                        GrindTemp = (long)query["GrindTemp"],
+                        RPM = (long)query["RPM"],
+                        IncubationTime = (long)query["IncubationTime"],
+                        IncubationTemp = (long)query["IncubationTemp"],
+                        Cycles = (long)query["Cycles"],
+                        Owner = (long)query["Owner"],
+                        Lock = (long)query["Lock"],
+                        Comment = (string)query["Comment"],
+                        Enzyme = (long)query["Enzyme"],
+                        State = (long)query["State"],
+                        Type = (long)query["Type"],
+                        Tag = null
+                    });
+
+
+                }
+
+                return myRecipe;
+            }
+        }
         public static List<User> GetUserDataList()
         {
 
@@ -381,6 +449,58 @@ namespace DataAccessLibrary
             }
 
         }
+        public static List<String> GetSpeciesList()
+        {
+
+            using (SqliteConnection db =
+                new SqliteConnection("Filename=s2Genomics.db"))
+            {
+                db.Open();
+                List<String> entries = new List<string>();
+                SqliteCommand selectCommand = new SqliteCommand
+                    ("SELECT DISTINCT Species from Recipe", db);
+
+                SqliteDataReader query = selectCommand.ExecuteReader();
+
+                while (query.Read())
+                {
+                    entries.Add(query["Species"].ToString());
+
+                }
+
+                db.Close();
+                entries.Sort();
+                return (entries);
+            }
+
+        }
+
+        public static List<String> GetOrganList()
+        {
+
+            using (SqliteConnection db =
+                new SqliteConnection("Filename=s2Genomics.db"))
+            {
+                db.Open();
+                List<String> entries = new List<string>();
+                SqliteCommand selectCommand = new SqliteCommand
+                    ("SELECT DISTINCT Organ from Recipe", db);
+
+                SqliteDataReader query = selectCommand.ExecuteReader();
+
+                while (query.Read())
+                {
+                    entries.Add(query["Organ"].ToString());
+
+                }
+
+                db.Close();
+                entries.Sort();
+                return (entries);
+            }
+
+        }
+
         public static void maintainRecipe(Recipe myrecipe)
         {
             using (SqliteConnection db =

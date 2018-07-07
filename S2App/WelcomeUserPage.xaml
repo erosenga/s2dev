@@ -94,7 +94,7 @@
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5,250,5,5">
         <Border BorderBrush="Gray" BorderThickness="4" HorizontalAlignment="Center" Margin="5,5,5,100" >
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="15,15,15,5">
-                <TextBox Text="" Header="Protocol Name"/>
+                    <TextBox x:Name="ProtocolName" Text="" Header="Protocol Name"/>
 
                 <ComboBox x:Name="Type"  Header="Protocol Type" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300" SelectedIndex="0">
                     <ComboBoxItem Content="Any"></ComboBoxItem>

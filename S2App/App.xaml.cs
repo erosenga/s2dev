@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Navigation;
 using DataAccessLibrary;
 using Windows.UI.ViewManagement;
 
+
 namespace S2App
 {
     /// <summary>
@@ -52,7 +53,13 @@ namespace S2App
             if (rootFrame == null)
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
-                rootFrame = new Frame();
+                rootFrame = new Frame
+                {
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    VerticalAlignment = VerticalAlignment.Top,
+                    Width = Window.Current.Bounds.Width,
+                    Height = Window.Current.Bounds.Height
+                }; ;
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
@@ -74,14 +81,32 @@ namespace S2App
                     // parameter
                     rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
-                ApplicationView.PreferredLaunchViewSize = new Size(1024, 768);
-                
-                ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
-                var view = ApplicationView.GetForCurrentView();
-                view.SetPreferredMinSize(new Size { Width = 1024, Height = 768 });
-                view.TryResizeView(new Size { Width = 1024, Height = 768 });
-                    // Ensure the current window is active
+
+                //var view = ApplicationView.GetForCurrentView();
+                //view.SetPreferredMinSize(new Size { Width = 1024, Height = 768 });
+                //view.TryResizeView(new Size { Width = 1024, Height = 768 });
+                //ApplicationView.PreferredLaunchViewSize = new Size(1024, 768);
+
+                //ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+                // Ensure the current window is active
+
+
+                float DPI = Windows.Graphics.Display.DisplayInformation.GetForCurrentView().LogicalDpi;
+
+                Windows.UI.ViewManagement.ApplicationView.PreferredLaunchWindowingMode = Windows.UI.ViewManagement.ApplicationViewWindowingMode.PreferredLaunchViewSize;
+
+                var desiredSize = new Windows.Foundation.Size(((float)1024 * 96.0f / DPI), ((float)768 * 96.0f / DPI));
+
+                Windows.UI.ViewManagement.ApplicationView.PreferredLaunchViewSize = desiredSize;
+
                 Window.Current.Activate();
+
+                bool result = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TryResizeView(desiredSize);
+
+                var titleBar = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TitleBar;
+                
+
+
             }
         }
 

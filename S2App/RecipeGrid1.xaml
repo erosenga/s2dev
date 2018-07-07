@@ -1,0 +1,94 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App8"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:grid="using:Telerik.UI.Xaml.Controls.Grid"
+    xmlns:core="using:Telerik.Data.Core"
+    xmlns:Custom="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    x:Class="S2App.RecipeGrid1"
+    mc:Ignorable="d">
+    <Grid RenderTransformOrigin="0.508,0.535">
+        <StackPanel Orientation="Vertical">
+            <RelativePanel>
+                <Rectangle HorizontalAlignment="Left" Height="132" Margin="0,0,0,0" VerticalAlignment="Top" Width="1024" Fill="Blue"/>
+                <Image HorizontalAlignment="Left" Height="94" Margin="100,30,-6,0" VerticalAlignment="Top" Width="220" Source="/Assets/S2logoWhite.png"/>
+                <Button x:Name="ButtonHome" Content="Home" HorizontalAlignment="Left" Height="52" Margin="355,48,0,0" VerticalAlignment="Top" Width="76" Foreground="White" Background="Blue" Click="ButtonHome_Click"/>
+                <Button x:Name="ButtonProtocols" Content="Protocols" HorizontalAlignment="Stretch" Height="52" Margin="455,48,0,0" VerticalAlignment="Top" Foreground="White" Background="Blue" Click="ButtonProtocols_Click"/>
+                <Button x:Name="ButtonRunLog" Content="Run Log" HorizontalAlignment="Left" Height="52" Margin="555,48,0,0" VerticalAlignment="Top" Width="76" Foreground="White" Background="Blue" Click="ButtonRunLog_Click"/>
+                <Button x:Name="ButtonAdministration" Content="Administration" HorizontalAlignment="Left" Height="52" Margin="655,48,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Blue" Click="ButtonAdministration_Click"/>
+                <Button x:Name="ButtonSignOut" Content="Sign Out" HorizontalAlignment="Right" Height="52" Margin="855,48,100,0" VerticalAlignment="Top" Width="76" Foreground="White" Background="Blue" Click="ButtonSignOut_Click"/>
+            </RelativePanel>
+            <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" CompactPaneLength="50" OpenPaneLength="150">
+                <SplitView.Pane>
+                    <StackPanel Background="Gray">
+                        <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
+                    Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="RunButton" FontFamily="Segoe MDL2 Assets" Content="&#xE725;"
+                   Width="50" Height="50" Background="Transparent" Click="RunButton_Click"/>
+                            <TextBlock Text="Run Recipe" FontSize="18" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="EditButton" FontFamily="Segoe MDL2 Assets" Content="&#xE70F;"
+                       Width="50" Height="50" Background="Transparent" Click="EditButton_Click"/>
+                            <TextBlock Text="Edit Recipe" FontSize="18" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="CopyButton" FontFamily="Segoe MDL2 Assets" Content="&#xE8C8;"
+                       Width="50" Height="50" Background="Transparent" Click="CopyButton_Click"/>
+                            <TextBlock Text="Copy Recipe" FontSize="18" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="DeleteButton" FontFamily="Segoe MDL2 Assets" Content="&#xE74D;"
+                       Width="50" Height="50" Background="Transparent" Click="DeleteButton_Click"/>
+                            <TextBlock Text="Delete Recipe" FontSize="18" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="LogoutButton" FontFamily="Segoe MDL2 Assets" Content="&#xE748;"
+                       Width="50" Height="50" Background="Transparent" Click="LogoutButton_Click"/>
+                            <TextBlock Text="Logout" FontSize="18" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="NewButton" FontFamily="Segoe MDL2 Assets" Content="&#xE78B;"
+                       Width="50" Height="50" Background="Transparent" Click="NewButton_Click"/>
+                            <TextBlock Text="New Recipe" FontSize="18" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+                </SplitView.Pane>
+                <SplitView.Content>
+                    <grid:RadDataGrid x:Name="rgrid"    ItemsSource="{x:Bind ds}"
+                    AutoGenerateColumns="False"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    GridLinesVisibility="None"
+                    CanUserChooseColumns="False"
+                    ColumnResizeHandleDisplayMode="Always"
+                    UserFilterMode="Enabled"
+                    FrozenColumnCount="1"
+                    IsEnabled="True" 
+                    Height="635" 
+                    ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <grid:RadDataGrid.Columns>
+                            <grid:DataGridTextColumn PropertyName="Id" Header="Id"/>
+                            <grid:DataGridTextColumn PropertyName="NickName" Header="Nickname"/>
+                            <grid:DataGridTextColumn PropertyName="Species" Header="Species"/>
+                            <grid:DataGridTextColumn PropertyName="Organ" Header="Tissue"/>
+                            <grid:DataGridTextColumn PropertyName="State" Header="State"/>
+                            <grid:DataGridTextColumn PropertyName="Type" Header="Type"/>
+                            <grid:DataGridNumericalColumn PropertyName="GrindTime" Header="Grind Time"/>
+                            <grid:DataGridNumericalColumn PropertyName="GrindTemp" Header="Grind Temp"/>
+                            <grid:DataGridNumericalColumn PropertyName="RPM" Header="Speed RPM"/>
+                            <grid:DataGridNumericalColumn PropertyName="IncubationTime" Header="Incubation Time"/>
+                            <grid:DataGridNumericalColumn PropertyName="IncubationTemp" Header="Incubation Temp"/>
+                            <grid:DataGridNumericalColumn PropertyName="Cycles" Header="Cycles"/>
+                            <grid:DataGridTextColumn PropertyName="Comment" Header="Comment"/>
+                        </grid:RadDataGrid.Columns>
+                    </grid:RadDataGrid>
+                </SplitView.Content>
+            </SplitView>
+        </StackPanel>
+    </Grid>
+</Page>

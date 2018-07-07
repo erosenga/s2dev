@@ -92,7 +92,8 @@ namespace S2App
                 else if (localuser.Privilege == 2)
                     { RunOnly.IsChecked = true; }
                 Comment.Text = localuser.Comment;
-                             
+               
+
             }
 
          }
@@ -152,6 +153,12 @@ namespace S2App
                 var result2 = await dialog2.ShowAsync();
                 return;
             }
+            if (SelectUserBox.SelectedItem.ToString() == "r")
+            {
+                var dialog2 = new MessageDialog("Please Select User");
+                var result2 = await dialog2.ShowAsync();
+                return;
+            }
             if (SelectUserBox.SelectedItem.ToString() == "New User")
             {
                 int id1 = (int)DataAccess.GetUserId(email.Text);
@@ -170,7 +177,7 @@ namespace S2App
                 var result3 = await dialog3.ShowAsync();
                 return;
             }
-            User localuser=new User();
+            User localuser = new User();
             localuser.FirstName=FirstName.Text ;
             localuser.LastName=Lastname.Text ;
             localuser.email=email.Text ;
@@ -182,7 +189,10 @@ namespace S2App
                 localuser.Privilege = 1;
             else if ((bool)RunOnly.IsChecked)
                 localuser.Privilege = 2;
+            Comment.Text = Comment.Text.Replace("\'", "\'\'");
+            Comment.Text = Comment.Text.Replace("\"", "\"\"");
             localuser.Comment=Comment.Text;
+            
             int id = (int)DataAccess.GetUserId(localuser.email);
             if (id == -1)
                 DataAccess.InsertNewUserRecord(localuser.FirstName, localuser.LastName, localuser.email, localuser.Telephone, localuser.Password, localuser.Privilege.ToString(), localuser.Comment);
@@ -190,9 +200,7 @@ namespace S2App
                 DataAccess.UpdateUserRecord(id, localuser.FirstName, localuser.LastName, localuser.email, localuser.Telephone, localuser.Password, localuser.Privilege.ToString(), localuser.Comment);
             var dialog = new MessageDialog("User saved!");
             var result1 = await dialog.ShowAsync();
-            List<String> users = DataAccess.GetUserList();
-            users.Add("New User");
-            SelectUserBox.ItemsSource = users;
+            ((Frame)Window.Current.Content).Navigate(typeof(CreateUserPage));
             return;
 
         }

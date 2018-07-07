@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using DataAccessLibrary;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -36,11 +37,25 @@ namespace S2App
                 ButtonAdministration.IsEnabled = true;
                 ButtonAdministration.Visibility = Windows.UI.Xaml.Visibility.Visible;
             }
+            List<string> localspecies= new List<string>();
+            localspecies.Add("Any");
+            localspecies.AddRange(DataAccess.GetSpeciesList());
+            Species.ItemsSource = localspecies;
+            Species.SelectedIndex = 0;
+            List<string> localtissue = new List<string>();
+            localtissue.Add("Any");
+            localtissue.AddRange(DataAccess.GetOrganList());
+            Tissue.ItemsSource = localtissue;
+            Tissue.SelectedIndex = 0;
         }
 
         private void ButtonSearch_Click(object sender, RoutedEventArgs e)
         {
-
+            var temp = Type.Items[Type.SelectedIndex] as ComboBoxItem;
+            string temp1 = temp.Content.ToString();
+            
+            var mylist=DataAccess.GetRecipeList(ProtocolName.Text, temp1, Species.SelectedItem.ToString(), Tissue.SelectedItem.ToString());
+            ((Frame)Window.Current.Content).Navigate(typeof(RecipeGrid1),mylist);
         }
 
        
@@ -74,7 +89,7 @@ namespace S2App
 
         private void ButtonViewAllProtocols_Click(object sender, RoutedEventArgs e)
         {
-
+            ((Frame)Window.Current.Content).Navigate(typeof(RecipeGrid1));
         }
     }
 }

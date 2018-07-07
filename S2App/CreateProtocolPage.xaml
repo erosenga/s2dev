@@ -1,10 +1,11 @@
 ﻿<Page
-    x:Class="S2App.CreateProtocolPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:S2App"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Custom="using:Telerik.UI.Xaml.Controls.Input"
+    x:Class="S2App.CreateProtocolPage"
     mc:Ignorable="d">
 
     <Grid RenderTransformOrigin="0.508,0.535">
@@ -28,27 +29,30 @@
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5,-25,5,0">
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="5,5,5,5">
                     <TextBox x:Name="Species" Text="" Header="Species" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300"/>
-                    <TextBox x:Name="IncubationTime" Text="" Header="Incubation Time (min)" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300"/>
-                    <TextBox x:Name="DisruptionTime" Text="" Header="Mechanical Disruption time (s)" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300"/>
-                    <TextBox x:Name="Cycles" Text="" Header="Number of Cycles" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300"/>
+                    <Custom:RadNumericBox x:Name="IncubationTime"  Header="Incubation Time (min)" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300" ValueFormat="{}{0:N0}" AcceptsDecimalSeparator="False"/>
+                    <Custom:RadNumericBox x:Name="DisruptionTime"   Header="Mechanical Disruption time (s)" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300" ValueFormat="{}{0:N0}" AcceptsDecimalSeparator="False"/>
+                    <Custom:RadNumericBox x:Name="Cycles"  Header="Number of Cycles" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300" ValueFormat="{}{0:N0}" AcceptsDecimalSeparator="False"/>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="5,5,5,5">
                     <TextBox x:Name="Tissue" Text="" Header="Tissue" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300"/>
-                    <TextBox x:Name="IncubationTemperature" Text="" Header="Incubation Temperature (C)" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300"/>
-                    <TextBox x:Name="DisruptionSpeed" Text="" Header="Mechanical Disruption speed (RPM)" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300"/>
+                    <Custom:RadNumericBox x:Name="IncubationTemperature"  Header="Incubation Temperature (C)" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300" ValueFormat="{}{0:N0}" AcceptsDecimalSeparator="False"/>
+                    <Custom:RadNumericBox x:Name="DisruptionSpeed"  Header="Mechanical Disruption speed (RPM)" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300" ValueFormat="{}{0:N0}" AcceptsDecimalSeparator="False"/>
                     <ComboBox x:Name="Type"  Header="Type" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300">
-                        <ComboBoxItem Content="Single Cell"></ComboBoxItem>
-                        <ComboBoxItem Content="Nuclei"></ComboBoxItem>
-                        <ComboBoxItem Content="Nucleic Acid"></ComboBoxItem>
+                        <ComboBoxItem Content="Single Cell"/>
+                        <ComboBoxItem Content="Nuclei"/>
+                        <ComboBoxItem Content="Nucleic Acid"/>
                     </ComboBox>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="5,5,5,5">
-                    <TextBox x:Name="State" Text="" Header="State" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300"/>
-                    <TextBox x:Name="Enzyme" Text="" Header="Enzyme Formulation" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300"/>
-                    <TextBox x:Name="DisruptionTemp" Text="" Header="Disruption Temperature (C)" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300"/>
+                    <ComboBox x:Name="State" Header="State" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300">
+                        <ComboBoxItem Content="Normal"/>
+                        <ComboBoxItem Content="Cancerous"/>
+                    </ComboBox>
+                    <Custom:RadNumericBox x:Name="Enzyme"  Header="Enzyme Formulation" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300" ValueFormat="{}{0:N0}" AcceptsDecimalSeparator="False"/>
+                    <Custom:RadNumericBox x:Name="DisruptionTemp"  Header="Disruption Temperature (C)" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300" ValueFormat="{}{0:N0}" AcceptsDecimalSeparator="False" />
                 </StackPanel>
             </StackPanel>
-            <RichEditBox x:Name="Notes" HorizontalAlignment="Left" Header="Protocol Notes" Margin="30,-15,0,0" Height="300" Width="980" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <TextBox x:Name="Notes" HorizontalAlignment="Left" Header="Protocol Notes" Margin="30,-15,0,0" Height="300" Width="980" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"  AcceptsReturn="True"/>
 
         </StackPanel>
 

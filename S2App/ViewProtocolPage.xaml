@@ -36,7 +36,8 @@
                     <TextBox x:Name="Tissue" Text="" Header="Tissue" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300" IsReadOnly="True" Background="Aqua" BorderThickness="0"/>
                     <TextBox x:Name="IncubationTemperature" Text="" Header="Incubation Temperature (C)" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300" IsReadOnly="True" Background="Aqua" BorderThickness="0"/>
                     <TextBox x:Name="DisruptionSpeed" Text="" Header="Mechanical Disruption speed (RPM)" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300" IsReadOnly="True" Background="Aqua" BorderThickness="0"/>
-                     </StackPanel>
+                    <TextBox x:Name="Type"  Header="Type" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300" IsReadOnly="True" Background="Aqua" BorderThickness="0"/>
+                </StackPanel>
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="5,5,5,5">
                     <TextBox x:Name="State" Text="" Header="State" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300" IsReadOnly="True" Background="Aqua" BorderThickness="0"/>
                     <TextBox x:Name="Enzyme" Text="" Header="Enzyme Formulation" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300" IsReadOnly="True" Background="Aqua" BorderThickness="0"/>
@@ -44,7 +45,7 @@
                     <Button x:Name="PrepareSampleButton" Content="Prepare Sample"  Margin="5,25,5,0" VerticalAlignment="Top" Height="40" Width="150" Background="Green" Foreground="White" Click="PrepareSampleButton_Click"/>
                 </StackPanel>
             </StackPanel>
-            <RichEditBox x:Name="Notes" HorizontalAlignment="Left"  IsReadOnly="True" Header="Protocol Notes" Margin="30,-15,0,0" Height="300" Width="980" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="Aqua" BorderThickness="0"/>
+            <TextBox x:Name="Notes" HorizontalAlignment="Left"  IsReadOnly="True" Header="Protocol Notes" Margin="30,-15,0,0" Height="300" Width="980" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="Aqua" BorderThickness="0"/>
 
         </StackPanel>
 
