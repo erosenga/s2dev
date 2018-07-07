@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using DataAccessLibrary;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -82,8 +83,14 @@ namespace S2App
 
         }
 
-        private void ButtonNewProtocol_Click(object sender, RoutedEventArgs e)
+        private async void ButtonNewProtocol_Click(object sender, RoutedEventArgs e)
         {
+            if (App.CurrentUser.Privilege > 1)
+            {
+                var dialog = new MessageDialog("You are not allowed to Create a new recipe (insufficient Privilege)");
+                var result1 = await dialog.ShowAsync();
+                return;
+            }
             ((Frame)Window.Current.Content).Navigate(typeof(CreateProtocolPage));
         }
 

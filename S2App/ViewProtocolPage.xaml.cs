@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using DataAccessLibrary;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -95,11 +96,26 @@ namespace S2App
             App.CurrentRecipe.Tag = "Create";
             App.CurrentRecipe.Id = -1;
             App.CurrentRecipe.NickName = "CopyOf_" + App.CurrentRecipe.NickName;
+            App.CurrentRecipe.Owner = App.CurrentUser.Id;
             ((Frame)Window.Current.Content).Navigate(typeof(CreateProtocolPage),App.CurrentRecipe);
         }
 
-        private void EditProtocolButton_Click(object sender, RoutedEventArgs e)
+        private async void EditProtocolButton_Click(object sender, RoutedEventArgs e)
         {
+            if (App.CurrentUser.Privilege > 1)
+            {
+                var dialog = new MessageDialog("You are not allowed to Edit this recipe (insufficient Privilege)");
+                var result1 = await dialog.ShowAsync();
+                return;
+            }
+            if (App.CurrentUser.Privilege>0)
+              if (App.CurrentRecipe.Lock != 0)
+                if (App.CurrentRecipe.Owner != App.CurrentUser.Id)
+                {
+                    var dialog = new MessageDialog("Recipe is Locked by owner, cannot Edit");
+                    var result1 = await dialog.ShowAsync();
+                    return;
+                }
             App.CurrentRecipe.Tag = "Edit";
             ((Frame)Window.Current.Content).Navigate(typeof(CreateProtocolPage),App.CurrentRecipe);
 

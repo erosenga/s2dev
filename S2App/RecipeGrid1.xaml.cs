@@ -48,6 +48,8 @@ namespace S2App
             else ds = DataAccess.GetRecipeList();
             rgrid.ItemsSource = ds;
             rgrid.AutoGenerateColumns = true;
+            
+
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)

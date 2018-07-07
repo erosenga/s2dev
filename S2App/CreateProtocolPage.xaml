@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
     <Grid RenderTransformOrigin="0.508,0.535">
-        <Rectangle HorizontalAlignment="Left" Height="132" Margin="0,0,0,0" VerticalAlignment="Top" Width="1024" Fill="Blue"/>
+        <Rectangle HorizontalAlignment="Left" Height="132" Margin="0,0,0,0" VerticalAlignment="Top" Width="1024" Stretch="UniformToFill"  Fill="Blue"/>
         <Image HorizontalAlignment="Left" Height="130" Margin="10,10,0,0" VerticalAlignment="Top" Width="284" Source="/Assets/S2logoWhite.png"/>
         <Button x:Name="ButtonHome" Content="Home" HorizontalAlignment="Left" Height="52" Margin="355,48,0,0" VerticalAlignment="Top" Width="76" Foreground="White" Background="Blue" Click="ButtonHome_Click"/>
         <Button x:Name="ButtonProtocols" Content="Protocols" HorizontalAlignment="Left" Height="52" Margin="455,48,0,0" VerticalAlignment="Top" Width="76" Foreground="White" Background="Blue" Click="ButtonProtocols_Click"/>
@@ -21,7 +21,7 @@
                 <TextBlock x:Name="CreateProtocolBanner" HorizontalAlignment="Left" Margin="5,0,5,0" Text="Create Protocol" VerticalAlignment="Top" Height="39" Width="250" FontSize="32"/>
                 <TextBox x:Name="Protocol" Text="" Header="Protocol Name" Margin="5,5,5,0" VerticalAlignment="Top" Height="62" Width="300"/>
                 <CheckBox x:Name="Lock" Content="Lock"  Margin="5,35,5,0" VerticalAlignment="Top" Height="36" Width="68"  />
-                <Button x:Name="CancelButton" Content="Cancel"  Margin="5,15,5,0" VerticalAlignment="Top" Height="62" Width="82" Foreground="Blue" Background="Aqua" Click="CancelButton_Click"/>
+                <Button x:Name="CancelButton" Content="Cancel"  Margin="5,15,5,0" VerticalAlignment="Top" Height="62" Width="82" Foreground="Blue" Background="White" Click="CancelButton_Click"/>
                 <Button x:Name="SaveProtocolButton" Content="Save Protocol"  Margin="5,25,5,0" VerticalAlignment="Top" Height="40" Width="150" Background="Blue" Foreground="White" Click="SaveProtocolButton_Click"/>
             </StackPanel>
             <TextBlock x:Name="ConfigurationBanner" HorizontalAlignment="Left" Margin="5,-40,0,0" Text="Configuration" VerticalAlignment="Top" Height="42" Width="250" FontSize="24"/>

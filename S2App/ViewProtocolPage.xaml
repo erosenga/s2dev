@@ -20,7 +20,7 @@
                 <TextBlock x:Name="CreateProtocolBanner" HorizontalAlignment="Left" Margin="5,0,5,0" Text="View Protocol" VerticalAlignment="Top" Height="39" Width="250" FontSize="32"/>
                 <TextBox x:Name="Protocol" Text="" Header="Protocol Name" Margin="5,5,5,0" VerticalAlignment="Top" Height="62" Width="300" IsReadOnly="True" Background="Aqua" BorderThickness="0"/>
                 <CheckBox x:Name="Lock" Content="Lock"  Margin="5,35,5,0" VerticalAlignment="Top" Height="36" Width="68"  IsEnabled="False"/>
-                <Button x:Name="DuplicateButton" Content="Duplicate"  Margin="5,15,5,0" VerticalAlignment="Top" Height="62" Width="82" Foreground="Blue" Background="Aqua" Click="DuplicateButton_Click"/>
+                <Button x:Name="DuplicateButton" Content="Duplicate"  Margin="5,15,5,0" VerticalAlignment="Top" Height="62" Width="82" Foreground="Blue" Background="White" Click="DuplicateButton_Click"/>
                 <Button x:Name="EditProtocolButton" Content="Edit Protocol"  Margin="5,25,5,0" VerticalAlignment="Top" Height="40" Width="150" Background="Blue" Foreground="White" Click="EditProtocolButton_Click"/>
             </StackPanel>
             <TextBlock x:Name="ConfigurationBanner" HorizontalAlignment="Left" Margin="5,-40,0,0" Text="Configuration" VerticalAlignment="Top" Height="42" Width="250" FontSize="24"/>

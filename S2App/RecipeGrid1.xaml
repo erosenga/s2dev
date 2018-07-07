@@ -58,7 +58,10 @@
                     </StackPanel>
                 </SplitView.Pane>
                 <SplitView.Content>
-                    <grid:RadDataGrid x:Name="rgrid"    ItemsSource="{x:Bind ds}"
+                    <grid:RadDataGrid x:Name="rgrid"    
+                    ItemsSource="{x:Bind ds}" 
+                    SelectionMode="Single" 
+                    SelectionUnit="Row" 
                     AutoGenerateColumns="False"
                     Background="Transparent"
                     BorderBrush="Transparent"
@@ -72,6 +75,13 @@
                     ScrollViewer.HorizontalScrollBarVisibility="Visible"
                     ScrollViewer.VerticalScrollBarVisibility="Auto">
                         <grid:RadDataGrid.Columns>
+                            <grid:DataGridTemplateColumn Header="Select" Width="30" >
+                                <grid:DataGridTemplateColumn.CellContentTemplate>
+                                    <DataTemplate>
+                                        <Button  Margin="10,0,0,0" Click="EditButton_Click"  />
+                                    </DataTemplate>
+                                 </grid:DataGridTemplateColumn.CellContentTemplate>
+                            </grid:DataGridTemplateColumn>
                             <grid:DataGridTextColumn PropertyName="Id" Header="Id"/>
                             <grid:DataGridTextColumn PropertyName="NickName" Header="Nickname"/>
                             <grid:DataGridTextColumn PropertyName="Species" Header="Species"/>
