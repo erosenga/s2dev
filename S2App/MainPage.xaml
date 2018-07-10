@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Grid RenderTransformOrigin="0.508,0.535">
-        <Rectangle HorizontalAlignment="Left" Height="132" Margin="0,0,0,0" VerticalAlignment="Top" Width="1024" Fill="Blue"/>
+        <Rectangle HorizontalAlignment="Stretch" Height="132" Margin="0,0,0,0" VerticalAlignment="Top"  Fill="Blue"/>
         <Image HorizontalAlignment="Left" Height="130" Margin="10,10,0,0" VerticalAlignment="Top" Width="284" Source="/Assets/S2logoWhite.png"/>
         <StackPanel Orientation="Vertical">
             <TextBlock HorizontalAlignment="Center" Margin="0,167,0,0" Text="Sign In"  VerticalAlignment="Top" Height="82" Width="118" FontSize="32"/>

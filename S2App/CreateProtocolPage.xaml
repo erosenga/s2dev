@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
     <Grid RenderTransformOrigin="0.508,0.535">
-        <Rectangle HorizontalAlignment="Left" Height="132" Margin="0,0,0,0" VerticalAlignment="Top" Width="1024" Stretch="UniformToFill"  Fill="Blue"/>
+        <Rectangle HorizontalAlignment="Left" Height="132" Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill"  Fill="Blue"/>
         <Image HorizontalAlignment="Left" Height="130" Margin="10,10,0,0" VerticalAlignment="Top" Width="284" Source="/Assets/S2logoWhite.png"/>
         <Button x:Name="ButtonHome" Content="Home" HorizontalAlignment="Left" Height="52" Margin="355,48,0,0" VerticalAlignment="Top" Width="76" Foreground="White" Background="Blue" Click="ButtonHome_Click"/>
         <Button x:Name="ButtonProtocols" Content="Protocols" HorizontalAlignment="Left" Height="52" Margin="455,48,0,0" VerticalAlignment="Top" Width="76" Foreground="White" Background="Blue" Click="ButtonProtocols_Click"/>
@@ -52,7 +52,7 @@
                     <Custom:RadNumericBox x:Name="DisruptionTemp"  Header="Disruption Temperature (C)" Margin="5,5,5,5" VerticalAlignment="Top" Height="62" Width="300" ValueFormat="{}{0:N0}" AcceptsDecimalSeparator="False" />
                 </StackPanel>
             </StackPanel>
-            <TextBox x:Name="Notes" HorizontalAlignment="Left" Header="Protocol Notes" Margin="30,-15,0,0" Height="300" Width="980" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"  AcceptsReturn="True"/>
+            <TextBox x:Name="Notes" HorizontalAlignment="Stretch" Header="Protocol Notes" Margin="30,-15,0,0" Height="300" Width="980" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"  AcceptsReturn="True"/>
 
         </StackPanel>
 

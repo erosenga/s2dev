@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid RenderTransformOrigin="0.508,0.535">
-        <Rectangle HorizontalAlignment="Left" Height="132" Margin="0,0,0,0" VerticalAlignment="Top" Width="1024" Fill="Blue"/>
+        <Rectangle HorizontalAlignment="Stretch" Height="132" Margin="0,0,0,0" VerticalAlignment="Top"  Fill="Blue"/>
         <Image HorizontalAlignment="Left" Height="130" Margin="10,10,0,0" VerticalAlignment="Top" Width="284" Source="/Assets/S2logoWhite.png"/>
         <Button x:Name="ButtonHome" Content="Home" HorizontalAlignment="Left" Height="52" Margin="355,48,0,0" VerticalAlignment="Top" Width="76" Foreground="White" Background="Blue" Click="ButtonHome_Click"/>
         <Button x:Name="ButtonProtocols" Content="Protocols" HorizontalAlignment="Left" Height="52" Margin="455,48,0,0" VerticalAlignment="Top" Width="76" Foreground="White" Background="Blue" Click="ButtonProtocols_Click"/>

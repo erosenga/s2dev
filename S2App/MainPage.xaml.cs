@@ -1,22 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using DataAccessLibrary;
 using Windows.UI.Popups;
-using Windows.UI.ViewManagement;
-using Windows.UI;
 using Windows.ApplicationModel.Core;
+using System;
+using System.Collections.Generic;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -32,11 +20,13 @@ namespace S2App
         public MainPage()
         {
             this.InitializeComponent();
+
+
             CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
 
             DataAccess.InitializeDatabase();
-            List<String> users = DataAccess.GetUserList();
+            List<string> users = DataAccess.GetUserList();
             
             UserList.Items.Clear();
             selectedId = -1;

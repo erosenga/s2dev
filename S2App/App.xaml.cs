@@ -1,25 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.ApplicationModel;
+﻿using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using DataAccessLibrary;
-using Windows.UI.ViewManagement;
-
+using System;
 
 namespace S2App
 {
+   
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
@@ -30,6 +19,7 @@ namespace S2App
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
         /// 
+        public static string QuoteFilter(string instring) => instring.Replace("\'", "\'\'").Replace("\"", "\"\"");
 
         public static User CurrentUser=null;
         public static Recipe CurrentRecipe=null;
@@ -95,7 +85,7 @@ namespace S2App
 
                 Windows.UI.ViewManagement.ApplicationView.PreferredLaunchWindowingMode = Windows.UI.ViewManagement.ApplicationViewWindowingMode.PreferredLaunchViewSize;
 
-                var desiredSize = new Windows.Foundation.Size(((float)1024 * 96.0f / DPI), ((float)768 * 96.0f / DPI));
+                var desiredSize = new Windows.Foundation.Size(((float)1920 * 96.0f / DPI), ((float)1080 * 96.0f / DPI));
 
                 Windows.UI.ViewManagement.ApplicationView.PreferredLaunchViewSize = desiredSize;
 
@@ -104,8 +94,8 @@ namespace S2App
                 bool result = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TryResizeView(desiredSize);
 
                 var titleBar = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TitleBar;
-                
-
+                titleBar.ButtonBackgroundColor = Windows.UI.Colors.Blue;
+                titleBar.ButtonForegroundColor = Windows.UI.Colors.Blue;
 
             }
         }

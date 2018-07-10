@@ -10,17 +10,16 @@
     x:Class="S2App.RecipeGrid1"
     mc:Ignorable="d">
     <Grid RenderTransformOrigin="0.508,0.535">
+        <Rectangle HorizontalAlignment="Stretch" Height="132" Margin="0,0,0,0" VerticalAlignment="Top"  Fill="Blue"/>
+        <Image HorizontalAlignment="Left" Height="94" Margin="100,30,-6,0" VerticalAlignment="Top" Width="220" Source="/Assets/S2logoWhite.png"/>
+        <Button x:Name="ButtonHome" Content="Home" HorizontalAlignment="Left" Height="52" Margin="355,48,0,0" VerticalAlignment="Top" Width="76" Foreground="White" Background="Blue" Click="ButtonHome_Click"/>
+        <Button x:Name="ButtonProtocols" Content="Protocols" HorizontalAlignment="Center" Height="52" Margin="455,48,0,0" VerticalAlignment="Top" Foreground="White" Background="Blue" Click="ButtonProtocols_Click"/>
+        <Button x:Name="ButtonRunLog" Content="Run Log" HorizontalAlignment="Left" Height="52" Margin="555,48,0,0" VerticalAlignment="Top" Width="76" Foreground="White" Background="Blue" Click="ButtonRunLog_Click"/>
+        <Button x:Name="ButtonAdministration" Content="Administration" HorizontalAlignment="Left" Height="52" Margin="655,48,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Blue" Click="ButtonAdministration_Click"/>
+        <Button x:Name="ButtonSignOut" Content="Sign Out" HorizontalAlignment="Right" Height="52" Margin="855,48,100,0" VerticalAlignment="Top" Width="76" Foreground="White" Background="Blue" Click="ButtonSignOut_Click"/>
+
         <StackPanel Orientation="Vertical">
-            <RelativePanel>
-                <Rectangle HorizontalAlignment="Left" Height="132" Margin="0,0,0,0" VerticalAlignment="Top" Width="1024" Fill="Blue"/>
-                <Image HorizontalAlignment="Left" Height="94" Margin="100,30,-6,0" VerticalAlignment="Top" Width="220" Source="/Assets/S2logoWhite.png"/>
-                <Button x:Name="ButtonHome" Content="Home" HorizontalAlignment="Left" Height="52" Margin="355,48,0,0" VerticalAlignment="Top" Width="76" Foreground="White" Background="Blue" Click="ButtonHome_Click"/>
-                <Button x:Name="ButtonProtocols" Content="Protocols" HorizontalAlignment="Stretch" Height="52" Margin="455,48,0,0" VerticalAlignment="Top" Foreground="White" Background="Blue" Click="ButtonProtocols_Click"/>
-                <Button x:Name="ButtonRunLog" Content="Run Log" HorizontalAlignment="Left" Height="52" Margin="555,48,0,0" VerticalAlignment="Top" Width="76" Foreground="White" Background="Blue" Click="ButtonRunLog_Click"/>
-                <Button x:Name="ButtonAdministration" Content="Administration" HorizontalAlignment="Left" Height="52" Margin="655,48,0,0" VerticalAlignment="Top" Width="125" Foreground="White" Background="Blue" Click="ButtonAdministration_Click"/>
-                <Button x:Name="ButtonSignOut" Content="Sign Out" HorizontalAlignment="Right" Height="52" Margin="855,48,100,0" VerticalAlignment="Top" Width="76" Foreground="White" Background="Blue" Click="ButtonSignOut_Click"/>
-            </RelativePanel>
-            <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" CompactPaneLength="50" OpenPaneLength="150">
+             <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" CompactPaneLength="50" OpenPaneLength="150">
                 <SplitView.Pane>
                     <StackPanel Background="Gray">
                         <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
@@ -60,8 +59,6 @@
                 <SplitView.Content>
                     <grid:RadDataGrid x:Name="rgrid"    
                     ItemsSource="{x:Bind ds}" 
-                    SelectionMode="Single" 
-                    SelectionUnit="Row" 
                     AutoGenerateColumns="False"
                     Background="Transparent"
                     BorderBrush="Transparent"
@@ -71,7 +68,7 @@
                     UserFilterMode="Enabled"
                     FrozenColumnCount="1"
                     IsEnabled="True" 
-                    Height="635" 
+                    Height="900" Margin="0,132,0,0" 
                     ScrollViewer.HorizontalScrollBarVisibility="Visible"
                     ScrollViewer.VerticalScrollBarVisibility="Auto">
                         <grid:RadDataGrid.Columns>

@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using DataAccessLibrary;
 using Windows.UI.Popups;
+using System.Collections.Generic;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -38,7 +28,7 @@ namespace S2App
                 ButtonAdministration.IsEnabled = true;
                 ButtonAdministration.Visibility = Windows.UI.Xaml.Visibility.Visible;
             }
-            List<string> localspecies= new List<string>();
+            List<string> localspecies = new List<string>();
             localspecies.Add("Any");
             localspecies.AddRange(DataAccess.GetSpeciesList());
             Species.ItemsSource = localspecies;
@@ -98,5 +88,12 @@ namespace S2App
         {
             ((Frame)Window.Current.Content).Navigate(typeof(RecipeGrid1));
         }
+
+        private void ButtonProtocols_Click(object sender, RoutedEventArgs e)
+        {
+            ((Frame)Window.Current.Content).Navigate(typeof(RecipeGrid1));
+        }
+
+        
     }
 }
